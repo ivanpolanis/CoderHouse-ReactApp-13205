@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+$sizes: ('1':1.5rem,'2':1.125rem,'3':1rem,'4':0.925rem,'5':0.75rem,'6':0.675rem);
+
+.font-semi-bold{
+    font-weight: 600 !important;
+}
+@each $name,$size in $sizes {
+    .font-size-#{$name}{
+        font-size: $size !important;
+    }
+}

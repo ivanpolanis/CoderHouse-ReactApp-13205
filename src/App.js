@@ -1,15 +1,18 @@
+import React, {Fragment} from 'react';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemListContainer from './components/ItemListContainer';
+
 
 
 const App = () =>{
   return(
-    <div>
+    <Fragment>
       <NavBar/>
+      <ItemListContainer greeting='This is an example.'/>
       <Footer/>
-    </div>
+    </Fragment>
   );
 }
 export default App;

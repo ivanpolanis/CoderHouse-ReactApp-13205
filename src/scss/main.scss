@@ -1,1 +1,25 @@
+@import url('https://css.gg/css?=|shopping-cart|trash');
 @import "footer";
+@import 'navbar';
+@import 'shoppingCart';
+@import 'font';
+
+body{
+    height: 100vh;
+}
+.text-center{
+    text-align: center;
+}
+.item-list{    
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2rem;
+        border: 1px solid black;
+        border-radius: 16px;
+        padding: 8px;
+    }
+}

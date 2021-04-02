@@ -6,11 +6,16 @@
     .container{
         margin-top: 12px;
         .row{
-            .col{
+            .col-12, .col-md-4{
                 width: 33%;
                 text-align: center;
+                padding-bottom: 12px;
+                h6{
+                    color:gray;
+                }
                 a{
                     text-decoration: none;
+                    color: white;
                 }
             }
         }
