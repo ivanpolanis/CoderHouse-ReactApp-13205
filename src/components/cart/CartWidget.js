@@ -12,7 +12,7 @@ const CartWidget = () => {
     return(
         <>
             <Button variant='' onClick={handleShow}>
-                <i className="gg-shopping-cart"></i>
+                <i class="gg-shopping-cart"></i>
             </Button>
 
             <Modal show={show} onHide={handleClose}>
