@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import './App.css';
@@ -11,7 +11,7 @@ const App = () =>{
   return(
     <Fragment>
       <NavBar/>
-      <ItemListContainer greeting='This is an example.'/>
+        <ItemListContainer/>
       <ItemCount stock={8} count={1}/>
       <Footer/>
     </Fragment>

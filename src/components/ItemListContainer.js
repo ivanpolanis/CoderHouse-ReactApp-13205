@@ -1,12 +1,9 @@
-import { Container } from 'react-bootstrap';
-import React from 'react';
+import ItemList from './ItemList';
 
-const ItemListContainer = ({greeting}) =>{
-    return(
-        <Container className='text-center item-list'>
-            <p>{greeting}</p>
-        </Container>
+const ItemListContainer = () =>{
+    return (
+        <ItemList/>
     );
-};
+}
 
 export default ItemListContainer;

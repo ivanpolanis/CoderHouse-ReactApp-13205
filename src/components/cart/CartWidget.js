@@ -12,7 +12,7 @@ const CartWidget = () => {
     return(
         <>
             <Button variant='' onClick={handleShow}>
-                <i class="gg-shopping-cart"></i>
+                <i className="gg-shopping-cart"></i>
             </Button>
 
             <Modal show={show} onHide={handleClose}>
@@ -23,7 +23,7 @@ const CartWidget = () => {
                     <CartItem/>
                 </Modal.Body>
                 <Modal.Footer>
-                    <CartFooter/>
+                    <CartFooter close={handleClose}/>
                 </Modal.Footer>
             </Modal>
         </>

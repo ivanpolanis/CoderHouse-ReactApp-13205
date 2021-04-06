@@ -1,5 +1,5 @@
 
-const CartFooter = () => {
+const CartFooter = ({close}) => {
 
 
 
@@ -10,9 +10,9 @@ const CartFooter = () => {
                 <span className='d-block'>$59.99</span>
             </div>
             <div className="mb-2">
-                <button className='btn btn-dark'>Checkout</button>
+                <button className='btn btn-dark' onClick={close}>Checkout</button>
             </div>
-            <span><a href="#/" className='text-muted font-size-6'>
+            <span><a href="#/" className='text-muted font-size-6' onClick={close}>
             Continue Shopping
             </a></span>
         </div>
