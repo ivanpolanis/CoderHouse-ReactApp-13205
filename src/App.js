@@ -2,9 +2,8 @@ import React, { Fragment } from 'react';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import './App.css';
-import ItemListContainer from './components/ItemListContainer';
-import ItemCount from './components/ItemCount';
-
+import ItemListContainer from './components/item/ItemListContainer';
+import ItemDetailContainer from './components/item/ItemDetailContainer';
 
 
 const App = () =>{
@@ -12,7 +11,7 @@ const App = () =>{
     <Fragment>
       <NavBar/>
         <ItemListContainer/>
-      <ItemCount stock={8} count={1}/>
+      <ItemDetailContainer/>
       <Footer/>
     </Fragment>
   );

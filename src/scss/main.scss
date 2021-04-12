@@ -1,49 +1,74 @@
 @import url('https://css.gg/css?=|shopping-cart|trash');
-@import "footer";
+@import 'footer';
 @import 'navbar';
 @import 'shoppingCart';
 @import 'font';
 @import 'card';
+@import 'itemDetail';
 
-body{
-    height: 100vh;
+body {
+	height: 100vh;
 }
-.text-center{
-    text-align: center;
+.text-center {
+	text-align: center;
 }
-.item-list{    
-    min-height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    p{
-        font-family: 'Montserrat', sans-serif;
-        font-size: 2rem;
-        border: 1px solid black;
-        border-radius: 16px;
-        padding: 8px;
-    }
+.item-list {
+	min-height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	p {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 2rem;
+		border: 1px solid black;
+		border-radius: 16px;
+		padding: 8px;
+	}
 }
 /* Counter Style*/
 
-.counter{
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    border: 1px solid grey;
-    border-radius: 16px;
-    margin: 1rem;
-    .count{
-        width: 100%;
-        text-align: center;
-        font-size: 5rem;
-    }
-    .btn-counter{
-        justify-content: center;
-        align-items: center;
-        border-bottom-left-radius: 16px;
-        border-bottom-right-radius: 16px;
-        width: 100%;
-        background-color: #f8f9fa;
-    }
+.counter {
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	border: 1px solid grey;
+	border-radius: 16px;
+	margin: 1rem;
+	background-color: #f8f9fa;
+	.count {
+		.count-n{
+			width: 30%;
+			
+		}
+		height: 100%;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		text-align: center;
+		font-size: 1.5rem;
+		.btn{
+			height: 100%;
+			width: 35%;
+
+		}
+		.btn-l{
+			border-radius: 0px;
+			border-top-left-radius: 16px;
+			border-bottom-left-radius: 16px;
+		}
+		.btn-r{
+			border-radius: 0px;
+			border-top-right-radius: 16px;
+			border-bottom-right-radius: 16px;
+		}
+	}
+	.btn-counter {
+		justify-content: center;
+		align-items: center;
+		border-bottom-left-radius: 16px;
+		border-bottom-right-radius: 16px;
+		width: 100%;
+		background-color: #f8f9fa;
+	}
 }
