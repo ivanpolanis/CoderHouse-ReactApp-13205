@@ -1,13 +1,24 @@
-@import url('https://css.gg/css?=|shopping-cart|trash');
+@import url('https://css.gg/css?=|facebook|google|twitter|shopping-cart|trash');
 @import 'footer';
 @import 'navbar';
 @import 'shoppingCart';
 @import 'font';
 @import 'card';
 @import 'itemDetail';
+@import 'carousel';
+@import 'home';
+@import 'login';
 
 body {
-	height: 100vh;
+	min-height: 100vh;
+	a{
+		color: black;
+		
+		&:hover{
+			text-decoration: none;
+			color: #1f1f1f;
+		}
+	}
 }
 .text-center {
 	text-align: center;
@@ -71,4 +82,21 @@ body {
 		width: 100%;
 		background-color: #f8f9fa;
 	}
+}
+
+.spinner{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+.loading-text{
+	width: 100%;
+	position: absolute;
+	text-align: center;
+	padding-top: 90px;
 }

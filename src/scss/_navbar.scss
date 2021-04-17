@@ -11,5 +11,10 @@
         align-self: center;
         color: #000 !important;
         text-transform: uppercase;
+        .btn{
+            &:focus{
+                box-shadow: none;
+            }
+        }
     }
 }

@@ -1,28 +1,24 @@
-import { Container, Row } from 'react-bootstrap';
-import React, { useState, useEffect } from 'react';
-import Item from './Item';
+import { Col } from 'react-bootstrap';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ItemList = (props) => {
-	const [data, setData] = useState([]);
-
-	useEffect(() => {
-		fetch('https://fakestoreapi.com/products/category/electronics')
-			.then((res) => res.json())
-			.then((data) => {
-				setData(data);
-			}, []);
-	});
-
+const ItemList = ({ id, name, price, img }) => {
 	return (
-		<Container className='mt-4'>
-			<Row>
-				{data.map((data) => {
-					return (
-						<Item key={data.id} name={data.title} price={data.price} img={data.image} />
-					);
-				})}
-			</Row>
-		</Container>
+		<Col xs='12' sm='6' md='4' className='gutter-1'>
+			<Link to={'/shop/'+id}>
+				<div className='card card-product'>
+					<figure className='card-image'>
+						<a href='#!' alt='' >
+							<img src={img} alt='' />
+						</a>
+					</figure>
+					<div className='card-footer'>
+						<h3 className='card-title'>{name}</h3>
+						<span className='price font-semi-bold'>${price}</span>
+					</div>
+				</div>
+			</Link>
+		</Col>
 	);
 };
 

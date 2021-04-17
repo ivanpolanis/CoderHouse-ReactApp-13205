@@ -10,12 +10,15 @@
             max-width: 600px;
             height: 100%;
             display: flex;
+            text-align:center;
             align-content: center;
             .img{
                 width: 100%;
                 object-fit: contain;
                 height: auto;
                 cursor: pointer;
+                vertical-align: middle;
+                position: relative;
             }
         }
         
