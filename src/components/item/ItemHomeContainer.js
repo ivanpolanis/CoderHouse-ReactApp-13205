@@ -16,6 +16,7 @@ const ItemHomeContainer = () => {
 				{data.map((data) => (
 					<ItemHome
 						key={data.id}
+						id={data.id}
 						title={data.title}
 						price={data.price}
 						img={data.image}

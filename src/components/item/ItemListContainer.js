@@ -3,18 +3,28 @@ import React, { useState, useEffect } from 'react';
 import Item from './ItemList';
 import Loader from '../Loader';
 import Axios from 'axios';
+import { useParams } from 'react-router';
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
 	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
+	const { category } = useParams();
+
 	useEffect(() => {
 		setIsLoading(true);
-		Axios('https://fakestoreapi.com/products/category/electronics').then((res) => {
-			setData(res.data);
-			setIsLoading(false);
-		});
-	}, []);
+		if (category === undefined) {
+			Axios(`https://fakestoreapi.com/products/`).then((res) => {
+				setData(res.data);
+				setIsLoading(false);
+			}, []);
+		} else {
+			Axios(`https://fakestoreapi.com/products/category/${category}`).then((res) => {
+				setData(res.data);
+				setIsLoading(false);
+			}, []);
+		}
+	}, [category]);
 
 	return (
 		<Container className='mt-4'>

@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import './App.css';
 import Product from './views/Product';
+import ItemListContainer from './components/item/ItemListContainer';
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
         <NavBar />
           <Switch>
           <Route path='/shop/:product' component={Product}/>
+          <Route path='/category/:category' component={ItemListContainer}/>
           <Route path='/shop' component={Shop}/>
           <Route path='/' exact component={Home}/>
           <Route path='/category'/>

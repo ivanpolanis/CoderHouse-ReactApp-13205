@@ -20,9 +20,10 @@ const NavBar = () => {
 							Shop
 						</Link>
 						<NavDropdown title='Categories'>
-							<NavDropdown.Item href='#action/3.1'>Category </NavDropdown.Item>
-							<NavDropdown.Item href='#action/3.2'>Category </NavDropdown.Item>
-							<NavDropdown.Item href='#action/3.3'>Category </NavDropdown.Item>
+							<Link className='dropdown-item' to='/category/jewelery'>Jewelery</Link>
+							<Link className='dropdown-item' to='/category/electronics'>Electronics</Link>
+							<Link className='dropdown-item' to='/category/men clothing'>Men clothing</Link>
+							<Link className='dropdown-item' to='/category/women clothing'>Women clothing</Link>
 						</NavDropdown>
 					</Nav>
 				</Navbar.Collapse>
