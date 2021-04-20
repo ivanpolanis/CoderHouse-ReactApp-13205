@@ -15,8 +15,8 @@ const App = () => {
       <Fragment>
         <NavBar />
           <Switch>
-          <Route path='/shop/:product' component={Product}/>
-          <Route path='/category/:category' component={ItemListContainer}/>
+          <Route path='/product/:product' component={Product}/>
+          <Route path='/shop/category/:category' component={ItemListContainer}/>
           <Route path='/shop' component={Shop}/>
           <Route path='/' exact component={Home}/>
           <Route path='/category'/>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const ItemList = ({ id, name, price, img }) => {
 	return (
 		<Col xs='12' sm='6' md='4' className='gutter-1'>
-			<Link to={'/shop/'+id}>
+			<Link to={'/product/'+id}>
 				<div className='card card-product'>
 					<figure className='card-image'>
 						<a href='#!' alt='' >

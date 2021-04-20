@@ -16,7 +16,7 @@ const ItemHome = ({ title, id , price, img }) => {
 					<p className='item-price'>
 						<strike>${price + price * 0.3}</strike> <span>${price}</span>
 					</p>
-					<Link className='btn btn-home' to={`/shop/${id}`}>
+					<Link className='btn btn-home' to={`/product/${id}`}>
 						Go to product
 					</Link>
 				</div>
