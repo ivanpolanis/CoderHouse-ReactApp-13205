@@ -8,9 +8,7 @@ const ItemList = ({ id, name, price, img }) => {
 			<Link to={'/product/'+id}>
 				<div className='card card-product'>
 					<figure className='card-image'>
-						<a href='#!' alt='' >
 							<img src={img} alt='' />
-						</a>
 					</figure>
 					<div className='card-footer'>
 						<h3 className='card-title'>{name}</h3>

@@ -22,8 +22,8 @@ const NavBar = () => {
 						<NavDropdown title='Categories'>
 							<Link className='dropdown-item' to='/shop/category/jewelery'>Jewelery</Link>
 							<Link className='dropdown-item' to='/shop/category/electronics'>Electronics</Link>
-							<Link className='dropdown-item' to='/shop/category/men clothing'>Men clothing</Link>
-							<Link className='dropdown-item' to='/shop/category/women clothing'>Women clothing</Link>
+							<Link className='dropdown-item' to="/shop/category/men's clothing">Men clothing</Link>
+							<Link className='dropdown-item' to="/shop/category/women's clothing">Women clothing</Link>
 						</NavDropdown>
 					</Nav>
 				</Navbar.Collapse>

@@ -17,11 +17,7 @@ const ItemDetailContainer = () => {
 				return (
 					<ItemDetail
 						key={data.id}
-						name={data.title}
-						price={data.price}
-						description={data.description}
-						img={data.image}
-						category={data.category}
+						data={data}
 					/>
 				);
 			})}

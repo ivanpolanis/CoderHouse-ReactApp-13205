@@ -24,11 +24,7 @@ function Product() {
 			) : (
 				<ItemDetail
 					key={product.id}
-					name={product.title}
-					price={product.price}
-					description={product.description}
-					img={product.image}
-					category={product.category}
+					item={product}
 				/>
 			)}
 		</div>

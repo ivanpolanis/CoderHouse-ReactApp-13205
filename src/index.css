@@ -42,6 +42,44 @@
     .cart-item .item-img .rounded {
       border-radius: 1rem; }
 
+.cart {
+  min-height: 100vh; }
+  .cart .cart-header {
+    height: 60px;
+    border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+    display: flex;
+    margin: 12px;
+    align-items: center;
+    margin-bottom: 0; }
+  .cart .cart-item {
+    position: relative;
+    margin-left: 12px;
+    margin-right: 12px;
+    height: 150px; }
+    .cart .cart-item:nth-child(even) {
+      background-color: #fafafa; }
+    .cart .cart-item .item-img {
+      width: 15%;
+      height: 100%;
+      padding: 6px; }
+      .cart .cart-item .item-img .img-fluid {
+        height: 100%;
+        object-fit: contain; }
+    .cart .cart-item .item-description {
+      width: 80%; }
+    .cart .cart-item .btn-remove {
+      position: absolute;
+      height: 36px;
+      right: 12px;
+      bottom: 0;
+      top: 0;
+      margin: auto; }
+  .cart .cart-footer {
+    border-top: 1px solid #d1d1d1;
+    padding: 6px;
+    padding-right: 12px; }
+
 .cart-footer {
   width: 100%; }
 
@@ -94,26 +132,28 @@ div .card-footer {
     position: absolute;
     bottom: .25rem; }
 
-.item-detail-view .detail-item {
-  padding: 2rem; }
-  @media screen and (min-width: 1140px) {
-    .item-detail-view .detail-item {
-      padding: 10rem;
-      padding-right: 3rem; } }
-  .item-detail-view .detail-item .detail-img {
-    width: 100%;
-    max-width: 600px;
-    height: 100%;
-    display: flex;
-    text-align: center;
-    align-content: center; }
-    .item-detail-view .detail-item .detail-img .img {
+.item-detail-view {
+  min-height: 100vh; }
+  .item-detail-view .detail-item {
+    padding: 2rem; }
+    @media screen and (min-width: 1140px) {
+      .item-detail-view .detail-item {
+        padding: 10rem;
+        padding-right: 3rem; } }
+    .item-detail-view .detail-item .detail-img {
       width: 100%;
-      object-fit: contain;
-      height: auto;
-      cursor: pointer;
-      vertical-align: middle;
-      position: relative; }
+      max-width: 600px;
+      height: 100%;
+      display: flex;
+      text-align: center;
+      align-content: center; }
+      .item-detail-view .detail-item .detail-img .img {
+        width: 100%;
+        object-fit: contain;
+        height: auto;
+        cursor: pointer;
+        vertical-align: middle;
+        position: relative; }
 
 .carousel {
   margin-top: 2rem;
