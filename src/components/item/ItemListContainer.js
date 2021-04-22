@@ -25,7 +25,6 @@ const ItemListContainer = () => {
 			}, []);
 		}
 	}, [category]);
-	console.log(`https://fakestoreapi.com/products/category/${category}`)
 	return (
 		<Container className='mt-4'>
 			<Row>

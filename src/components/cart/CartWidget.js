@@ -1,22 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import Axios from 'axios';
 import CartItem from './CartItem';
 import CartFooter from './CartFooter.js';
+import EmptyCart from '../EmptyCart';
+import { CartContext } from '../../CartContext/CartProvider';
 
 const CartWidget = () => {
 	const [show, setShow] = useState(false);
 
-	const [data, setData] = useState([]);
+	const { cart } = useContext(CartContext);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
-
-	useEffect(() => {
-		Axios(`https://fakestoreapi.com/products?limit=1`).then((res) => {
-			setData(res.data);
-        },[]);
-	}, []);
 
 	return (
 		<>
@@ -28,10 +23,16 @@ const CartWidget = () => {
 				<Modal.Header closeButton>
 					<Modal.Title>Shopping Cart</Modal.Title>
 				</Modal.Header>
-				<Modal.Body>
-					{data.map(data => <CartItem key={data.id} item={data} quantity={2} />)}
+				<Modal.Body className='pb-0'>
+					{cart.length ? (
+						cart.map((data) => (
+							<CartItem key={data.id} item={data.item} quantity={data.quantity} />
+						))
+					) : (
+						<EmptyCart />
+					)}
 				</Modal.Body>
-				<Modal.Footer>
+				<Modal.Footer className='pt-0'>
 					<CartFooter close={handleClose} />
 				</Modal.Footer>
 			</Modal>

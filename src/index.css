@@ -42,6 +42,21 @@
     .cart-item .item-img .rounded {
       border-radius: 1rem; }
 
+.empty-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin: auto; }
+
+.cart-footer {
+  width: 100%; }
+  .cart-footer .clear-cart {
+    display: flex;
+    justify-content: end;
+    padding-bottom: .50rem;
+    border-bottom: 1px solid #dee2e6; }
+
 .cart {
   min-height: 100vh; }
   .cart .cart-header {
@@ -52,36 +67,45 @@
     margin: 12px;
     align-items: center;
     margin-bottom: 0; }
-  .cart .cart-item {
+  .cart .item-container:nth-child(even) {
+    background-color: #fafafa; }
+  .cart .item-container .cart-item {
     position: relative;
     margin-left: 12px;
     margin-right: 12px;
     height: 150px; }
-    .cart .cart-item:nth-child(even) {
-      background-color: #fafafa; }
-    .cart .cart-item .item-img {
+    .cart .item-container .cart-item .item-img {
       width: 15%;
       height: 100%;
       padding: 6px; }
-      .cart .cart-item .item-img .img-fluid {
+      .cart .item-container .cart-item .item-img .img-fluid {
         height: 100%;
         object-fit: contain; }
-    .cart .cart-item .item-description {
+    .cart .item-container .cart-item .item-description {
       width: 80%; }
-    .cart .cart-item .btn-remove {
+    .cart .item-container .cart-item .btn-remove {
       position: absolute;
       height: 36px;
       right: 12px;
       bottom: 0;
       top: 0;
       margin: auto; }
+    .cart .item-container .cart-item .empty-cart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      margin: auto; }
   .cart .cart-footer {
     border-top: 1px solid #d1d1d1;
     padding: 6px;
-    padding-right: 12px; }
-
-.cart-footer {
-  width: 100%; }
+    padding-right: 12px;
+    position: relative; }
+    .cart .cart-footer .clear-cart {
+      position: absolute;
+      padding-bottom: .50rem;
+      border-bottom: none;
+      bottom: 0; }
 
 .font-semi-bold {
   font-weight: 600 !important; }

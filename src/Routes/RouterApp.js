@@ -1,0 +1,28 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from '../views/Home';
+import Shop from '../views/Shop';
+import Cart from '../views/Cart';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import Product from '../views/Product';
+import ItemListContainer from '../components/item/ItemListContainer';
+
+const RouterApp = () => {
+	return (
+		<Router>
+			<NavBar />
+			<Switch>
+				<Route path='/product/:product' component={Product} />
+				<Route path='/shop/category/:category' component={ItemListContainer} />
+				<Route path='/shop' component={Shop} />
+				<Route path='/cart' component={Cart} />
+				<Route path='/' exact component={Home} />
+				<Route path='/category' />
+			</Switch>
+			<Footer />
+		</Router>
+	);
+};
+
+export default RouterApp;
