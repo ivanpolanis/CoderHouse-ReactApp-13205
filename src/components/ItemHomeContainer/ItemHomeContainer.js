@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ItemHome from './ItemHome';
+import ItemHome from '../ItemHome/ItemHome';
 import Axios from 'axios';
 
 const ItemHomeContainer = () => {

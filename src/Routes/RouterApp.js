@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from '../views/Home';
 import Shop from '../views/Shop';
 import Cart from '../views/Cart';
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
+import NavBar from '../components/NavBar/NavBar';
+import Footer from '../components/Footer/Footer';
 import Product from '../views/Product';
-import ItemListContainer from '../components/item/ItemListContainer';
+import ItemListContainer from '../components/ItemListContainer/ItemListContainer';
 
 const RouterApp = () => {
 	return (

@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import CartItem from '../components/cart/CartItem';
-import EmptyCart from '../components/EmptyCart';
+import CartItem from '../components/CartItem/CartItem';
+import EmptyCart from '../components/EmptyCart/EmptyCart';
 import { CartContext } from '../CartContext/CartProvider';
 
 const Cart = () => {
-	const { cart, clear, total } = useContext(CartContext);
+	const { cart, clear, totalPrice } = useContext(CartContext);
 
 	return (
 		<Container>
@@ -34,7 +34,7 @@ const Cart = () => {
 							</button>
 						) : null}
 					</div>
-					<span className='d-block font-semi-bold font-size-2'>Total: ${total}</span>
+					<span className='d-block font-semi-bold font-size-2'>Total: ${totalPrice}</span>
 					<button className='btn btn-dark'>CheckOut</button>
 				</div>
 			</div>

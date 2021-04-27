@@ -1,7 +1,7 @@
 import { Container, Row } from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
-import Item from './ItemList';
-import Loader from '../Loader';
+import Item from '../ItemList/ItemList';
+import Loader from '../Loader/Loader';
 import Axios from 'axios';
 import { useParams } from 'react-router';
 

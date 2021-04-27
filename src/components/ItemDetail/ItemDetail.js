@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import ItemCount from './ItemCount';
+import ItemCount from '../ItemCount/ItemCount';
 import { CartContext } from '../../CartContext/CartProvider';
 
 const ItemDetail = ({ item }) => {

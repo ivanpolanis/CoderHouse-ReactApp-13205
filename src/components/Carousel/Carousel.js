@@ -1,5 +1,5 @@
 import { Carousel } from 'react-bootstrap';
-import ph from '../assets/placeholder.jpg';
+import ph from '../../assets/placeholder.jpg';
 
 const CarouselHome = () => {
 	return (

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import ItemDetail from './ItemDetail';
-import Loader from '../Loader';
+import ItemDetail from '../ItemDetail/ItemDetail';
+import Loader from '../Loader/Loader';
 import Axios from 'axios';
 
 const ItemDetailContainer = () => {

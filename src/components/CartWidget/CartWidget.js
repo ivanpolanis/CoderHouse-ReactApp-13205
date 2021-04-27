@@ -1,21 +1,22 @@
 import { useContext, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import CartItem from './CartItem';
-import CartFooter from './CartFooter.js';
-import EmptyCart from '../EmptyCart';
+import CartItem from '../CartItem/CartItem';
+import CartFooter from '../CartFooter/CartFooter.js';
+import EmptyCart from '../EmptyCart/EmptyCart';
 import { CartContext } from '../../CartContext/CartProvider';
 
 const CartWidget = () => {
 	const [show, setShow] = useState(false);
 
-	const { cart } = useContext(CartContext);
+	const { cart, totalItems } = useContext(CartContext);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
 	return (
 		<>
-			<Button variant='' onClick={handleShow}>
+			<Button className='position-relative' variant='' onClick={handleShow}>
+				{totalItems ? <span className='total-items'>{totalItems}</span> : null}
 				<i className='gg-shopping-cart'></i>
 			</Button>
 
@@ -32,7 +33,7 @@ const CartWidget = () => {
 						<EmptyCart />
 					)}
 				</Modal.Body>
-				<Modal.Footer className='pt-0'>
+				<Modal.Footer className='pt-0 border-0'>
 					<CartFooter close={handleClose} />
 				</Modal.Footer>
 			</Modal>

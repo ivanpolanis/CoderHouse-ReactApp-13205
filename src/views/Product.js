@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemDetailContainer from '../components/item/ItemDetailContainer';
+import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailContainer';
 
 function Product() {
 
