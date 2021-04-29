@@ -2,8 +2,8 @@ import { Container, Row } from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
 import Item from '../ItemList/ItemList';
 import Loader from '../Loader/Loader';
-import Axios from 'axios';
 import { useParams } from 'react-router';
+import { db } from '../../firebase';
 
 const ItemListContainer = () => {
 	const [data, setData] = useState([]);
@@ -12,18 +12,23 @@ const ItemListContainer = () => {
 	const { category } = useParams();
 
 	useEffect(() => {
+		const getData = async () => {
+			let ref = '';
+			category
+				? (ref = db.collection('items').where('category', '==', category))
+				: (ref = db.collection('items'));
+	
+			ref.onSnapshot((querySnapshot) => {
+				const docs = [];
+				querySnapshot.forEach((doc) => {
+					docs.push({ id: doc.id, ...doc.data() });
+					setIsLoading(false);
+				});
+				setData(docs);
+			});
+		};
 		setIsLoading(true);
-		if (category === undefined) {
-			Axios(`https://fakestoreapi.com/products/`).then((res) => {
-				setData(res.data);
-				setIsLoading(false);
-			}, []);
-		} else {
-			Axios(`https://fakestoreapi.com/products/category/${category}`).then((res) => {
-				setData(res.data);
-				setIsLoading(false);
-			}, []);
-		}
+		getData();
 	}, [category]);
 	return (
 		<Container className='mt-4'>

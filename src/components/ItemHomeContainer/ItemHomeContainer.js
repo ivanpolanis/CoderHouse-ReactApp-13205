@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import ItemHome from '../ItemHome/ItemHome';
-import Axios from 'axios';
+import { db } from '../../firebase';
 
 const ItemHomeContainer = () => {
 	const [data, setData] = useState([]);
-
+	
 	useEffect(() => {
-		Axios.get(
-			'https://fakestoreapi.com/products/category/electronics?limit=3',
-		).then((res) => setData(res.data));
+		const getItems = async () => {
+			db.collection('items')
+				.limit(3)
+				.onSnapshot((querySnapshot) => {
+					const docs = [];
+					querySnapshot.forEach((item) => docs.push({ id: item.id ,...item.data() }));
+					setData(docs);
+				});
+		};
+		getItems()
 	}, []);
 	return (
 		<div className='container'>

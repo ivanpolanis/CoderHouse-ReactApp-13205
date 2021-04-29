@@ -2,23 +2,28 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import Loader from '../Loader/Loader';
-import Axios from 'axios';
+import { db } from '../../firebase';
 
 const ItemDetailContainer = () => {
-	const [product, setProduct] = useState({});
+	const [item, setItem] = useState({});
 	const [isLoading, setIsLoading] = useState(false);
 
-	const id = useParams();
+	const { id } = useParams();
+	
+	const getItem = async (id) => {
+		db.collection('items')
+			.doc(id)
+			.onSnapshot((item) => {
+				setItem(item.data())
+				setIsLoading(false)
+			});
+	};
+
 	useEffect(() => {
 		setIsLoading(true);
-		Axios.get(`https://fakestoreapi.com/products/${id.product}`).then((res) => {
-			setProduct(res.data);
-			setIsLoading(false);
-		});
+		getItem(id);
 	}, [id]);
 
-	return (
-		<div>{isLoading ? <Loader /> : <ItemDetail key={product.id} item={product} />}</div>
-	);
+	return <div>{isLoading ? <Loader /> : <ItemDetail key={item.id} item={item} />}</div>;
 };
 export default ItemDetailContainer;

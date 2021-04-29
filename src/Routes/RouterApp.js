@@ -13,7 +13,7 @@ const RouterApp = () => {
 		<Router>
 			<NavBar />
 			<Switch>
-				<Route path='/product/:product' component={Product} />
+				<Route path='/product/:id' component={Product} />
 				<Route path='/shop/category/:category' component={ItemListContainer} />
 				<Route path='/shop' component={Shop} />
 				<Route path='/cart' component={Cart} />

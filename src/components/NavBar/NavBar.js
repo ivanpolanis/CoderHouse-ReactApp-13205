@@ -32,10 +32,10 @@ const NavBar = () => {
 							<Link className='dropdown-item' to='/shop/category/electronics'>
 								Electronics
 							</Link>
-							<Link className='dropdown-item' to="/shop/category/men's clothing">
+							<Link className='dropdown-item' to="/shop/category/men">
 								Men clothing
 							</Link>
-							<Link className='dropdown-item' to="/shop/category/women's clothing">
+							<Link className='dropdown-item' to="/shop/category/women">
 								Women clothing
 							</Link>
 						</NavDropdown>
