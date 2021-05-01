@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment} from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 
-const Login = () => {
+const Login = ({ signIn, signUp, handleOnChange, values }) => {
+	const { register, handleSubmit, formState: { errors } } = useForm({});
+
+
 	const [showSI, setShowSI] = useState(false);
 	const [showSU, setShowSU] = useState(false);
 
@@ -12,16 +16,12 @@ const Login = () => {
 	const handleShowSignUp = () => setShowSU(true);
 
 	return (
-		<>
-			<Button variant='' onClick={handleShowSignIn}>
-				<span className='nav-link'>
-					Sign IN
-				</span>
+		<Fragment>
+			<Button variant='' style={{ boxShadow: 'none' }} onClick={handleShowSignIn}>
+				<span className='nav-link'>Sign IN</span>
 			</Button>
-            <Button variant='' onClick={handleShowSignUp}>
-				<span className='nav-link'>
-					Sign Up
-				</span>
+			<Button variant='' style={{ boxShadow: 'none' }} onClick={handleShowSignUp}>
+				<span className='nav-link'>Sign Up</span>
 			</Button>
 
 			<Modal
@@ -30,7 +30,7 @@ const Login = () => {
 				className='modal-style'
 				dialogClassName='modal-login'
 			>
-				<Modal.Header closebutton className='p-0'>
+				<Modal.Header className='p-0'>
 					<h4 className='modal-title'>Login</h4>
 					<button
 						type='button'
@@ -43,7 +43,15 @@ const Login = () => {
 					</button>
 				</Modal.Header>
 				<Modal.Body>
-					<form action='' method='' className='mt-3'>
+					<form
+						action=''
+						method=''
+						className='mt-3'
+						onSubmit={(e) => {
+							signIn(e);
+							handleCloseSignIn();
+						}}
+					>
 						<div className='form-group'>
 							<div className='input-group'>
 								<span className='input-group-addon'>
@@ -52,9 +60,11 @@ const Login = () => {
 								<input
 									type='text'
 									className='form-control'
-									name='username'
-									placeholder='Enter your username'
+									name='email'
+									placeholder='Enter email address'
 									required='required'
+									onChange={handleOnChange}
+									value={values.email}
 								/>
 							</div>
 						</div>
@@ -70,6 +80,8 @@ const Login = () => {
 									placeholder='Enter password'
 									required='required'
 									autoComplete='on'
+									onChange={handleOnChange}
+									value={values.password}
 								/>
 							</div>
 						</div>
@@ -146,21 +158,15 @@ const Login = () => {
 					</button>
 				</Modal.Header>
 				<Modal.Body>
-					<form action='' method='post' className='mt-3'>
-						<div className='form-group'>
-							<div className='input-group'>
-								<span className='input-group-addon'>
-									<i className='fa fa-user'></i>
-								</span>
-								<input
-									type='text'
-									className='form-control'
-									name='name'
-									placeholder='Enter your name'
-									required='required'
-								/>
-							</div>
-						</div>
+					<form
+						action=''
+						method='post'
+						className='mt-3'
+						onSubmit={handleSubmit((e) => {
+							signUp(e);
+							handleCloseSignUp();
+						})}
+					>
 						<div className='form-group'>
 							<div className='input-group'>
 								<span className='input-group-addon'>
@@ -172,6 +178,8 @@ const Login = () => {
 									name='email'
 									placeholder='Enter email address'
 									required='required'
+									onChange={handleOnChange}
+									value={values.email}
 								/>
 							</div>
 						</div>
@@ -183,12 +191,20 @@ const Login = () => {
 								<input
 									type='password'
 									className='form-control'
-									name='password'
 									placeholder='Enter password'
-									required='required'
+									{...register('password',{
+										required: 'You must specify a password',
+										minLength: {
+											value: 8,
+											message: 'Password must have at least 8 characters',
+										},
+									})}
 									autoComplete='on'
+									onChange={handleOnChange}
 								/>
+								
 							</div>
+							{errors.password && <span style={{textAlign:'center',display:'block'}}>{errors.password.message}</span>}
 						</div>
 						<div className='form-group'>
 							<div className='input-group'>
@@ -198,12 +214,16 @@ const Login = () => {
 								<input
 									type='password'
 									className='form-control'
-									name='password_confirmation'
 									placeholder='Retype password'
-									required='required'
+									{...register('password_confirmation',{
+										validate: (value) =>
+											value === values.password || 'The passwords do not match',
+									})}
 									autoComplete='on'
 								/>
+								
 							</div>
+							{errors.password_confirmation && <span style={{textAlign:'center',display:'block'}}>{errors.password_confirmation.message}</span>}
 						</div>
 
 						<div className='form-group text-center'>
@@ -241,7 +261,7 @@ const Login = () => {
 					</a>
 				</Modal.Footer>
 			</Modal>
-		</>
+		</Fragment>
 	);
 };
 

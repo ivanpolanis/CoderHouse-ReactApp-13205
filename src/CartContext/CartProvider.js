@@ -7,8 +7,9 @@ export const CartProvider = (props) => {
 
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [totalItems, setTotalItems] = useState(0);
+	const [loaded, setLoaded] = useState(1);
 
-	const addItem = (item, count) => {
+	const addItem = (item, count = 0) => {
 		setCart((prev) => {
 			const isItemInCart = prev.find((cart) => cart.item.id === item.id);
 			let quantity = count;
@@ -22,6 +23,7 @@ export const CartProvider = (props) => {
 			return [...prev, { item, quantity }];
 		});
 	};
+	
 	const removeItem = (id) => {
 		setCart((prev) =>
 			prev.reduce((ack, data) => {
@@ -36,7 +38,23 @@ export const CartProvider = (props) => {
 	const clear = () => {
 		setCart([]);
 	};
+
 	useEffect(() => {
+		const getLocalStorage = () => {
+			let cartArray = localStorage.getItem('cart');
+			if (cartArray != null) {
+				let aux = JSON.parse(cartArray);
+				for (const i of aux) {
+					setCart((prev) => [...prev, { ...i, ...i.quantity }])
+					console.log(cart)
+				}
+				
+			}
+		};
+		if (loaded) {
+			getLocalStorage();
+			setLoaded(0);
+		}
 		const Total = () => {
 			let totalPrice = 0;
 			let totalItems = 0;
@@ -46,11 +64,16 @@ export const CartProvider = (props) => {
 			}
 			setTotalItems(totalItems);
 			setTotalPrice(totalPrice.toFixed(2));
+			localStorage.setItem('cart', JSON.stringify(cart));
 		};
+
 		Total();
-	}, [cart]);
+	}, [cart,loaded]);
+
 	return (
-		<CartContext.Provider value={{ cart, addItem, removeItem, clear, totalPrice, totalItems }}>
+		<CartContext.Provider
+			value={{ cart, addItem, removeItem, clear, totalPrice, totalItems }}
+		>
 			{props.children}
 		</CartContext.Provider>
 	);

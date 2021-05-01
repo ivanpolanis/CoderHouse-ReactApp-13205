@@ -1,4 +1,4 @@
-@import url('https://css.gg/css?=|facebook|google|twitter|shopping-cart|trash');
+@import url('https://css.gg/css?=|facebook|google|twitter|shopping-cart|trash|user');
 @import 'footer';
 @import 'navbar';
 @import 'shoppingCart';
@@ -8,6 +8,8 @@
 @import 'carousel';
 @import 'home';
 @import 'login';
+@import 'editProfile';
+@import 'checkOut';
 
 body {
 	min-height: 100vh;

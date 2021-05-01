@@ -3,7 +3,16 @@
     text-transform: uppercase;
 }
 
+.navbar{
+    .order-lg-1,.order-lg-3{
+        width: 40%;
+    }
+}
+
 .navbar-nav {
+    .btn{
+        padding: .375rem .0rem;
+    }
     .nav-link{
         font-family: "Roboto";
         font-size: 1rem;

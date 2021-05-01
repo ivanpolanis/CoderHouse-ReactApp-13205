@@ -1,0 +1,25 @@
+.order{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    .card{
+        width: 100%;
+        min-height: 350px ;
+        height: 350px;
+        
+    }
+}
+@media only screen and (min-width: 768px){
+    .order{
+        .card{
+            width: 75%;
+        }
+    }
+}
+@media only screen and (min-width: 992px){
+    .order{
+        .card{
+            width: 50%;
+        }
+    }
+}

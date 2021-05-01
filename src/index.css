@@ -1,4 +1,4 @@
-@import url("https://css.gg/css?=|facebook|google|twitter|shopping-cart|trash");
+@import url("https://css.gg/css?=|facebook|google|twitter|shopping-cart|trash|user");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;700&display=swap");
 .footer {
   bottom: 0px;
@@ -16,10 +16,18 @@
       .footer .container .row .col-12 a, .footer .container .row .col-md-4 a {
         text-decoration: none;
         color: white; }
+  .footer .white {
+    color: white; }
 
 .navbar-brand {
   font-size: 1.125rem;
   text-transform: uppercase; }
+
+.navbar .order-lg-1, .navbar .order-lg-3 {
+  width: 40%; }
+
+.navbar-nav .btn {
+  padding: .375rem .0rem; }
 
 .navbar-nav .nav-link {
   font-family: "Roboto";
@@ -415,6 +423,27 @@ h4 {
     margin: 5px; }
   .modal-style .modal-login form {
     width: 100%; } }
+
+.profile-photo .photo {
+  height: 300px;
+  width: 100%; }
+
+.order {
+  display: flex;
+  justify-content: center;
+  align-content: center; }
+  .order .card {
+    width: 100%;
+    min-height: 350px;
+    height: 350px; }
+
+@media only screen and (min-width: 768px) {
+  .order .card {
+    width: 75%; } }
+
+@media only screen and (min-width: 992px) {
+  .order .card {
+    width: 50%; } }
 
 body {
   min-height: 100vh; }

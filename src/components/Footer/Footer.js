@@ -19,6 +19,9 @@ const Footer = () => {
 					</Col>
 				</Row>
 			</Container>
+			<Col className='justify-content text-center mt-3'>
+				<p className='mb-0 white'>Designed and made by Iván Polanis - All rights reserved</p>
+			</Col>
 		</div>
 	);
 };

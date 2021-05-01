@@ -27,7 +27,7 @@ const CartWidget = () => {
 				<Modal.Body className='pb-0'>
 					{cart.length ? (
 						cart.map((data) => (
-							<CartItem key={data.id} item={data.item} quantity={data.quantity} />
+							<CartItem key={data.item.id} item={data.item} quantity={data.quantity} />
 						))
 					) : (
 						<EmptyCart />

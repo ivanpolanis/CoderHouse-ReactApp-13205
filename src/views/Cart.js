@@ -35,7 +35,7 @@ const Cart = () => {
 						) : null}
 					</div>
 					<span className='d-block font-semi-bold font-size-2'>Total: ${totalPrice}</span>
-					<button className='btn btn-dark'>CheckOut</button>
+					{cart.length ? <Link to='/cart/checkout'><button className='btn btn-dark'>CheckOut</button></Link> : <span className='btn btn-dark disabled'>CheckOut</span>} 
 				</div>
 			</div>
 		</Container>

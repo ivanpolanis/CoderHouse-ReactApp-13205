@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
 		db.collection('items')
 			.doc(id)
 			.onSnapshot((item) => {
-				setItem(item.data())
+				setItem({...item.data(), id: id})
 				setIsLoading(false)
 			});
 	};
@@ -24,6 +24,6 @@ const ItemDetailContainer = () => {
 		getItem(id);
 	}, [id]);
 
-	return <div>{isLoading ? <Loader /> : <ItemDetail key={item.id} item={item} />}</div>;
+	return <div>{isLoading ? <Loader /> : <ItemDetail key={id} item={item} />}</div>;
 };
 export default ItemDetailContainer;
