@@ -3,7 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 import CartItem from '../CartItem/CartItem';
 import CartFooter from '../CartFooter/CartFooter.js';
 import EmptyCart from '../EmptyCart/EmptyCart';
-import { CartContext } from '../../CartContext/CartProvider';
+import { CartContext } from '../../Context/CartContext/CartProvider';
 
 const CartWidget = () => {
 	const [show, setShow] = useState(false);

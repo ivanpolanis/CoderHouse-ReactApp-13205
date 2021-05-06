@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import RouterApp from './Routes/RouterApp'
-import { CartProvider } from './CartContext/CartProvider';
-import {Auth} from './auth/Auth'
+import { CartProvider } from './Context/CartContext/CartProvider';
+import {Auth} from './Context/auth/Auth'
 
 const App = () => {
 	return (

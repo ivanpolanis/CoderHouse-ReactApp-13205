@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CartItem from '../components/CartItem/CartItem';
 import EmptyCart from '../components/EmptyCart/EmptyCart';
-import { CartContext } from '../CartContext/CartProvider';
+import { CartContext } from '../Context/CartContext/CartProvider';
 
 const Cart = () => {
 	const { cart, clear, totalPrice } = useContext(CartContext);
@@ -20,7 +20,7 @@ const Cart = () => {
 				<div className='cart-body'>
 					{cart.length ? (
 						cart.map((data) => (
-							<CartItem key={data.id} item={data.item} quantity={data.quantity} />
+							<CartItem key={data.item.id} item={data.item} quantity={data.quantity} />
 						))
 					) : (
 						<EmptyCart />

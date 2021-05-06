@@ -9,7 +9,7 @@ export const CartProvider = (props) => {
 	const [totalItems, setTotalItems] = useState(0);
 	const [loaded, setLoaded] = useState(1);
 
-	const addItem = (item, count = 0) => {
+	const addItem = (item, count) => {
 		setCart((prev) => {
 			const isItemInCart = prev.find((cart) => cart.item.id === item.id);
 			let quantity = count;
@@ -46,7 +46,6 @@ export const CartProvider = (props) => {
 				let aux = JSON.parse(cartArray);
 				for (const i of aux) {
 					setCart((prev) => [...prev, { ...i, ...i.quantity }])
-					console.log(cart)
 				}
 				
 			}

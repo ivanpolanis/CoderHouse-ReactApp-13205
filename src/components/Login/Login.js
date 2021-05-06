@@ -1,10 +1,17 @@
-import React, { useState, Fragment} from 'react';
+import React, { useState, Fragment } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import firebase from 'firebase';
 
-const Login = ({ signIn, signUp, handleOnChange, values }) => {
-	const { register, handleSubmit, formState: { errors } } = useForm({});
+const Login = ({ signIn, signUp, handleOnChange, values, authWithProvider }) => {
+	const googleProvider = new firebase.auth.GoogleAuthProvider();
+	const githubProvider = new firebase.auth.GithubAuthProvider();
 
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({});
 
 	const [showSI, setShowSI] = useState(false);
 	const [showSU, setShowSU] = useState(false);
@@ -99,9 +106,7 @@ const Login = ({ signIn, signUp, handleOnChange, values }) => {
 								</label>
 							</div>
 							<div className='col text-right hint-text pt-0'>
-								<a href='#!' className='text-danger'>
-									Forgot Password?
-								</a>
+								
 							</div>
 						</div>
 						<div className='form-group text-center mt-2 mb-0'>
@@ -111,14 +116,19 @@ const Login = ({ signIn, signUp, handleOnChange, values }) => {
 						</div>
 						<p className='hint-text mt-0'>or login with</p>
 						<div className='social-login text-center'>
-							<a className=' btn-facebook  text-uppercase' href='redirect/facebook'>
-								<i className='gg-facebook mr-2 ml-2'></i>{' '}
+							<a
+								className='text-uppercase'
+								onClick={() => authWithProvider(googleProvider)}
+								href='#!'
+							>
+								<i className='fa fa-google mr-2 ml-2' style={{ fontSize: 24 }}></i>
 							</a>
-							<a className=' btn-facebook  text-uppercase' href='redirect/google'>
-								<i className='gg-google mr-2 ml-2'></i>
-							</a>
-							<a className=' btn-facebook  text-uppercase' href='redirect/twitter'>
-								<i className='gg-twitter mr-2 ml-2'></i>
+							<a
+								className='text-uppercase'
+								onClick={() => authWithProvider(githubProvider)}
+								href='#!'
+							>
+								<i className='fa fa-github mr-2 ml-2' style={{ fontSize: 24 }}></i>
 							</a>
 						</div>
 					</form>
@@ -126,7 +136,7 @@ const Login = ({ signIn, signUp, handleOnChange, values }) => {
 				<Modal.Footer>
 					Don't have an account?{' '}
 					<a
-						href='#registerModal'
+						href='#/'
 						data-dismiss='modal'
 						data-toggle='modal'
 						onClick={() => {
@@ -192,7 +202,7 @@ const Login = ({ signIn, signUp, handleOnChange, values }) => {
 									type='password'
 									className='form-control'
 									placeholder='Enter password'
-									{...register('password',{
+									{...register('password', {
 										required: 'You must specify a password',
 										minLength: {
 											value: 8,
@@ -202,9 +212,12 @@ const Login = ({ signIn, signUp, handleOnChange, values }) => {
 									autoComplete='on'
 									onChange={handleOnChange}
 								/>
-								
 							</div>
-							{errors.password && <span style={{textAlign:'center',display:'block'}}>{errors.password.message}</span>}
+							{errors.password && (
+								<span style={{ textAlign: 'center', display: 'block' }}>
+									{errors.password.message}
+								</span>
+							)}
 						</div>
 						<div className='form-group'>
 							<div className='input-group'>
@@ -215,15 +228,18 @@ const Login = ({ signIn, signUp, handleOnChange, values }) => {
 									type='password'
 									className='form-control'
 									placeholder='Retype password'
-									{...register('password_confirmation',{
+									{...register('password_confirmation', {
 										validate: (value) =>
 											value === values.password || 'The passwords do not match',
 									})}
 									autoComplete='on'
 								/>
-								
 							</div>
-							{errors.password_confirmation && <span style={{textAlign:'center',display:'block'}}>{errors.password_confirmation.message}</span>}
+							{errors.password_confirmation && (
+								<span style={{ textAlign: 'center', display: 'block' }}>
+									{errors.password_confirmation.message}
+								</span>
+							)}
 						</div>
 
 						<div className='form-group text-center'>
@@ -235,20 +251,25 @@ const Login = ({ signIn, signUp, handleOnChange, values }) => {
 				</Modal.Body>
 				<p className='hint-text'>or register with</p>
 				<div className='social-login text-center mb-2'>
-					<a className=' btn-facebook  text-uppercase' href='redirect/facebook'>
-						<i className='gg-facebook mr-2 ml-2'></i>{' '}
+					<a
+						className='text-uppercase'
+						onClick={() => authWithProvider(googleProvider)}
+						href='#!'
+					>
+						<i className='fa fa-google mr-2 ml-2' style={{ fontSize: 24 }}></i>
 					</a>
-					<a className=' btn-facebook  text-uppercase' href='redirect/google'>
-						<i className='gg-google mr-2 ml-2'></i>
-					</a>
-					<a className=' btn-facebook  text-uppercase' href='redirect/twitter'>
-						<i className='gg-twitter mr-2 ml-2'></i>
+					<a
+						className='text-uppercase'
+						onClick={() => authWithProvider(githubProvider)}
+						href='#!'
+					>
+						<i className='fa fa-github mr-2 ml-2' style={{ fontSize: 24 }}></i>
 					</a>
 				</div>
 				<Modal.Footer>
 					Already have an account?{' '}
 					<a
-						href='#!'
+						href='#/'
 						data-dismiss='modal'
 						data-toggle='modal'
 						onClick={() => {

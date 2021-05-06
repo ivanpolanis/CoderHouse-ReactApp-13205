@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../CartContext/CartProvider';
+import { CartContext } from '../../Context/CartContext/CartProvider';
 
 const CartFooter = ({ close }) => {
 	const { cart, clear, totalPrice } = useContext(CartContext);

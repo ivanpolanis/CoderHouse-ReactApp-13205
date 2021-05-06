@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
-import { CartContext } from '../../CartContext/CartProvider';
+import { CartContext } from '../../Context/CartContext/CartProvider';
 
 const ItemDetail = ({ item }) => {
 	const { addItem } = useContext(CartContext);

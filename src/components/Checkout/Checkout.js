@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
-import { AuthContext } from '../../auth/Auth';
-import { CartContext } from '../../CartContext/CartProvider';
-import CheckoutItem from '../CheckoutItem/CheckoutItem';
-import { useForm } from 'react-hook-form';
-import firebase from 'firebase/app';
-import { db } from '../../firebase';
 import { Redirect } from 'react-router';
+import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../Context/auth/Auth';
+import { CartContext } from '../../Context/CartContext/CartProvider';
+import { db } from '../../firebase';
+import firebase from 'firebase/app'
+import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CheckoutSuccess from '../CheckoutSuccess/CheckoutSuccess';
 
 const initialValues = {
@@ -22,14 +22,16 @@ const Checkout = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm({});
-
+	
 	const [buyer, setBuyer] = useState(initialValues);
 	const [id, setId] = useState('');
 	const { user } = useContext(AuthContext);
 	const { cart, clear, totalPrice, totalItems } = useContext(CartContext);
-	const completeForm = () => {
+
+	const completeForm = async () => {
 		setBuyer({ ...buyer, fullName: user.displayName, email: user.email });
 	};
+
 	const handleOnChange = (e) => {
 		const { name, value } = e.target;
 		setBuyer({ ...buyer, [name]: value });
@@ -64,7 +66,7 @@ const Checkout = () => {
 						</h4>
 						<ul className='list-group mb-3'>
 							{cart.map((data) => (
-								<CheckoutItem data={data} />
+								<CheckoutItem key={data.item.id} data={data} />
 							))}
 							<li className='list-group-item d-flex justify-content-between'>
 								<span>Total (USD)</span>
@@ -82,7 +84,7 @@ const Checkout = () => {
 						>
 							<Row>
 								<Col className='mb-3'>
-									<label for='fullName'>Full name</label>
+									<label htmlFor='fullName'>Full name</label>
 									<input
 										type='text'
 										className='form-control'
@@ -99,7 +101,7 @@ const Checkout = () => {
 							</Row>
 
 							<div className='mb-3'>
-								<label for='email'>Email</label>
+								<label htmlFor='email'>Email</label>
 								<input
 									type='text'
 									className='form-control'
@@ -118,7 +120,7 @@ const Checkout = () => {
 							</div>
 
 							<div className='mb-3'>
-								<label for='address'>Address</label>
+								<label htmlFor='address'>Address</label>
 								<input
 									type='text'
 									className='form-control'
@@ -140,10 +142,10 @@ const Checkout = () => {
 							</div>
 
 							<div className='mb-3'>
-								<label for='phoneNumber'>Phone Number</label>
+								<label htmlFor='phoneNumber'>Phone Number</label>
 								<div className='input-group'>
-									<div class='input-group-prepend'>
-										<span class='input-group-text'>+</span>
+									<div className='input-group-prepend'>
+										<span className='input-group-text'>+</span>
 									</div>
 									<input
 										type='text'
@@ -186,8 +188,11 @@ const Checkout = () => {
 						</form>
 					</div>
 				</Row>
-			) : (id !== '') ? <CheckoutSuccess id={id}/> : <Redirect to='/' />}
-			
+			) : id !== '' ? (
+				<CheckoutSuccess id={id} />
+			) : (
+				<Redirect to='/' />
+			)}
 		</Container>
 	);
 };

@@ -5,7 +5,7 @@ const Footer = () => {
 		<div className='footer bg-dark'>
 			<Container>
 				<Row className='justify-content-md-center'>
-					<Col xs='12' sm='4'>
+				<Col xs='12' sm='4'>
 						<h6>Example column</h6>
 						<a href='#link1'>Text Example</a>
 					</Col>

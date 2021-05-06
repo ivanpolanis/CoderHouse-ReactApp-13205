@@ -17,7 +17,7 @@ const ItemListContainer = () => {
 			category
 				? (ref = db.collection('items').where('category', '==', category))
 				: (ref = db.collection('items'));
-	
+
 			ref.onSnapshot((querySnapshot) => {
 				const docs = [];
 				querySnapshot.forEach((doc) => {
@@ -27,11 +27,13 @@ const ItemListContainer = () => {
 				setData(docs);
 			});
 		};
+
 		setIsLoading(true);
+
 		getData();
 	}, [category]);
 	return (
-		<Container className='mt-4'>
+		<Container className='mt-4 mh-80'>
 			<Row>
 				{isLoading ? (
 					<Loader />

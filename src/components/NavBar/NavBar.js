@@ -1,15 +1,15 @@
 import { useContext } from 'react';
 import { Container, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../auth/Auth';
-import { CartContext } from '../../CartContext/CartProvider';
+import { AuthContext } from '../../Context/auth/Auth';
+import { CartContext } from '../../Context/CartContext/CartProvider';
 import CartWidget from '../CartWidget/CartWidget';
 import LoggedIn from '../LoggedIn/LoggedIn';
 import Login from '../Login/Login';
 
 const NavBar = () => {
 	const { cart } = useContext(CartContext);
-	const { user, handleOnChange, signIn, signUp, values, signOut } = useContext(
+	const { user, handleOnChange, signIn, signUp, values, signOut, authWithProvider } = useContext(
 		AuthContext,
 	);
 	return (
@@ -59,6 +59,7 @@ const NavBar = () => {
 								signUp={signUp}
 								handleOnChange={handleOnChange}
 								values={values}
+								authWithProvider={authWithProvider}
 							/>
 						)}
 						<Nav.Link href=''>{cart.length ? <CartWidget /> : null}</Nav.Link>

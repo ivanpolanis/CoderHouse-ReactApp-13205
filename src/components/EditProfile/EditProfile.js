@@ -1,15 +1,19 @@
 import React, { useContext } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect } from 'react-router';
-import { AuthContext } from '../../auth/Auth';
+import { AuthContext } from '../../Context/auth/Auth';
+import { useForm } from 'react-hook-form';
 
 const EditProfile = () => {
 	const { values, user, updateUserProfile, handleOnChange } = useContext(AuthContext);
-
-	console.log(user);
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({});
 	return user ? (
 		<Container style={{ minHeight: '80vh' }}>
-			<form onSubmit={updateUserProfile}>
+			<form onSubmit={handleSubmit(updateUserProfile)}>
 				<Row style={{ minHeight: '400px' }}>
 					<Col md='4' className='order-md-2 profile-photo '>
 						<h3 className='mt-2'>Photo</h3>
@@ -20,46 +24,39 @@ const EditProfile = () => {
 						<input
 							type='text'
 							className='form-control'
-							name='displayName'
-							placeholder=''
+							placeholder='John Doe'
 							onChange={handleOnChange}
 							defaultValue={user && user.displayName}
-							required
+							{...register('displayName', {
+								required: true,
+							})}
 						/>
 						<div className='invalid-feedback'>Valid name is required.</div>
 						<label htmlFor='email'>Email</label>
 						<input
 							type='text'
 							className='form-control'
-							name='email'
-							placeholder=''
 							onChange={handleOnChange}
 							defaultValue={user && user.email}
-							required
+							{...register('email', {
+								required: 'Valid email is required',
+								pattern: /^\S+@\S+$/i,
+							})}
 						/>
-						<div className='invalid-feedback'>Valid email is required.</div>
-						{/* {<label htmlFor='phoneNumber'>Phone</label>
-						<input
-							type='text'
-							className='form-control'
-							name='phoneNumber'
-							placeholder=''
-							onChange={handleOnChange}
-							defaultValue={user && user.phoneNumber}
-							required
-						/>
-						<div className='invalid-feedback'>Valid phone is required.</div>} */}
+						{errors.email && <div className='text-muted'>Valid email is required.</div>}
 						<label htmlFor='photoURL'>URL Photo</label>
 						<input
 							type='text'
 							className='form-control'
-							name='photoURL'
-							placeholder=''
 							onChange={handleOnChange}
 							defaultValue={user ? user.photoURL : values.photoURL}
-							required
+							{...register('photoURL', {
+								required: true,
+							})}
 						/>
-						<div className='invalid-feedback'>Valid photoURL is required.</div>
+						{errors.photoURL && (
+							<div className='text-muted'>Valid photoURL is required.</div>
+						)}
 						<Button className='my-3' type='submit'>
 							Save Changes
 						</Button>
