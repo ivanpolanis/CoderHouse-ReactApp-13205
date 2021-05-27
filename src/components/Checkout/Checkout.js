@@ -78,6 +78,7 @@ const Checkout = () => {
 					<div className='col-md-8 order-md-1'>
 						<h4 className='mb-3'>Billing address</h4>
 						<form
+						className='mb-3'
 							onSubmit={handleSubmit(() => {
 								onSubmit();
 							})}

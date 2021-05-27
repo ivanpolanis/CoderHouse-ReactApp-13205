@@ -9,6 +9,9 @@
 }
 
 .modal-style {
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
 	input:-internal-autofill-selected {
 		background-color: transparent !important;
 	}

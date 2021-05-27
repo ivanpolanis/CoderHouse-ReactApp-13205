@@ -28,10 +28,11 @@ const LoggedIn = ({ signOut, photoURL }) => {
 	return (
 		<NavDropdown
 			title={navDropdownTitle}
-			id='collasible-nav-dropdown'
+			id='collasible-nav-dropdown '
 			show={show}
 			onMouseEnter={showDropdown}
 			onMouseLeave={hideDropdown}
+			className='mx-auto user-centered'
 		>
 			<Link className='dropdown-item' to='/profile/edit'>Edit Profile</Link>
 			<NavDropdown.Item onClick={signOut}>Log Out</NavDropdown.Item>
