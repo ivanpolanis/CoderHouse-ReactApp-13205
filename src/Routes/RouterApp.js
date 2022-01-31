@@ -18,13 +18,12 @@ const RouterApp = () => {
 			<Switch>
 				<Route path='/cart/checkout/success' component={CheckoutSuccess}/>
 				<Route path='/product/:id' component={Product} />
-				<Route path='/shop/category/:category' component={ItemListContainer} />
+				<Route path='/shop/:category' component={ItemListContainer} />
 				<Route path='/shop' component={Shop} />
 				<Route path='/cart/checkout' component={Checkout}/>
 				<Route path='/cart' component={Cart} />
 				<Route path='/profile/edit' component={EditProfile}/>
 				<Route path='/' exact component={Home} />
-				<Route path='/category' />
 			</Switch>
 			<Footer />
 		</Router>
