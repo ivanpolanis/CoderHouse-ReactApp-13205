@@ -1,6 +1,6 @@
 # Shop It
 
-El proyecto fue diseñado pura y exclusivamente para el curso de ReactJs de Coderhouse. Le he agregado ciertas funcionalidades extra, ya que mi idea es poder implementarlo en un portfolio.
+El proyecto fue diseñado pura y exclusivamente para el curso de ReactJs de Coderhouse.
 
 ## Funcionalidad
 
@@ -20,9 +20,3 @@ Hay tres maneras de autenticarse:
 - Email
 - Google
 - Github
-
-
-## Aclaraciones
-
-El contador se mostrara siempre a la hora de agregar un producto y no desapareceran junto con el botón de 'Add to cart', en vez de ser reemplazado por uno que diga 'Finish shoppping' y que redireccione a la view del Cart. Decidí hacerlo así, porque me gustaba más el resultado final. 
-
